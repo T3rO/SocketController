@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Socket Control</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="device_row_connection_status_connecting">Connecting...</string>
+    <string name="device_row_connection_status_no_connection">No Connection</string>
+    <string name="timer_not_set_message">Timer not set</string>
+    <string name="options">Options</string>
+    <string name="refresh">Refresh</string>
+</resources>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tninteractive.socketcontroller.socketdevicedetail.SocketDeviceDetailActivity"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/socket_device_detail_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/device_detail_no_connection_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_weight="1"
+        android:text="No connection"
+        android:textColor="@color/errorText"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/socket_device_detail_toolbar" />
+
+    <TextView
+        android:id="@+id/device_detail_power_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Power"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/socket_device_detail_toolbar"
+        android:layout_marginLeft="8dp" />
+
+    <Button
+        android:id="@+id/editDeviceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Edit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="8dp" />
+
+    <Button
+        android:id="@+id/deleteDeviceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:onClick="onClickDeleteButton"
+        android:text="Delete"
+        app:layout_constraintBottom_toBottomOf="@+id/editDeviceButton"
+        app:layout_constraintEnd_toStartOf="@+id/editDeviceButton"
+        android:layout_marginRight="8dp" />
+
+    <Button
+        android:id="@+id/socketDeviceBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="onClickBackButton"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="@+id/deleteDeviceButton"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="8dp" />
+
+    <LinearLayout
+        android:id="@+id/addSocketFragmentContainer1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="4dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+    </LinearLayout>
+
+    <Switch
+        android:id="@+id/socketDevicePowerSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:onClick="onClickPowerSwitch"
+        app:layout_constraintBottom_toBottomOf="@+id/device_detail_power_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/device_detail_power_text_view"
+        android:layout_marginRight="8dp" />
+
+    <TextView
+        android:id="@+id/socketDeviceDetailTimerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Timer"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="@+id/device_detail_power_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/device_detail_power_text_view" />
+
+    <Switch
+        android:id="@+id/socketDeviceDetailTimerSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickTimerSwitch"
+        app:layout_constraintBottom_toBottomOf="@+id/socketDeviceDetailTimerTextView"
+        app:layout_constraintEnd_toEndOf="@+id/socketDevicePowerSwitch"
+        app:layout_constraintTop_toTopOf="@+id/socketDeviceDetailTimerTextView" />
+
+    <TextView
+        android:id="@+id/socketDeviceDetailSetTimerTurnTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Turn"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/socketDeviceDetailTimerTextView"
+        app:layout_constraintTop_toBottomOf="@+id/socketDeviceDetailTimerTextView" />
+
+    <Spinner
+        android:id="@+id/socketDeviceDetailTimerActionSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/socketDeviceDetailSetTimerTurnTextView"
+        app:layout_constraintStart_toEndOf="@+id/socketDeviceDetailSetTimerTurnTextView"
+        app:layout_constraintTop_toTopOf="@+id/socketDeviceDetailSetTimerTurnTextView" />
+
+    <TextView
+        android:id="@+id/socketDeviceDetailSetTimerInTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="in"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/socketDeviceDetailTimerActionSpinner"
+        app:layout_constraintStart_toEndOf="@+id/socketDeviceDetailTimerActionSpinner"
+        app:layout_constraintTop_toTopOf="@+id/socketDeviceDetailTimerActionSpinner"
+        android:layout_marginLeft="8dp" />
+
+    <EditText
+        android:id="@+id/socketDeviceDetailTimerTimeEditText"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="time"
+        android:text="0:30"
+        android:textAlignment="textEnd"
+        app:layout_constraintBottom_toBottomOf="@+id/socketDeviceDetailSetTimerInTextView"
+        app:layout_constraintStart_toEndOf="@+id/socketDeviceDetailSetTimerInTextView"
+        app:layout_constraintTop_toTopOf="@+id/socketDeviceDetailSetTimerInTextView" />
+
+    <Button
+        android:id="@+id/socketDeviceDetailSetTimerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:onClick="onClickSetTimerButton"
+        android:text="Set"
+        app:layout_constraintBottom_toBottomOf="@+id/socketDeviceDetailTimerTimeEditText"
+        app:layout_constraintStart_toEndOf="@+id/socketDeviceDetailTimerTimeEditText"
+        app:layout_constraintTop_toTopOf="@+id/socketDeviceDetailTimerTimeEditText"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <TextView
+        android:id="@+id/socketDeviceDetailTimerTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/socketDeviceDetailTimerSwitch"
+        app:layout_constraintEnd_toStartOf="@+id/socketDeviceDetailTimerSwitch"
+        app:layout_constraintTop_toTopOf="@+id/socketDeviceDetailTimerSwitch" />
+
+</android.support.constraint.ConstraintLayout>
